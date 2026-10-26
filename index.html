@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>K.B. Diaz, Dragon's Liberty</title>
+<meta name="description" content="Dragon's Liberty, book one of The Republic of The Two Dragons. Epic fantasy set in a 17th-century Poland and Lithuania with dragons, by K.B. Diaz.">
+<meta property="og:title" content="A homepage for K.B. Diaz, made by Sparsh Saini">
+<meta property="og:description" content="A homepage idea for K.B. Diaz and Dragon's Liberty, made by Sparsh Saini. Not their official site.">
+<meta property="og:image" content="https://sparshsainied-prog.github.io/kbdiaz/img/og.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23271d2b'/><rect x='5' y='5' width='22' height='22' fill='none' stroke='%23e9a63a' stroke-width='2'/><text x='16' y='22' font-family='serif' font-size='15' text-anchor='middle' fill='%23e9a63a'>D</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --dusk: #271d2b;      /* the shadowed city at the foot of the cover */
+  --dusk-2: #352838;
+  --mauve: #c9a9b4;     /* the sky at the top of the cover */
+  --gold: #e9a63a;      /* the title and the sun */
+  --amber: #c96a1e;
+  --stone: #e6ddd2;     /* city stone, not cream */
+  --stone-2: #d8cdbf;
+  --ink: #2a2027;
+  --ink-soft: #57464f;
+  --rule: #8f7357;
+  --gutter: 16px;
+  --display: "IM Fell English", Georgia, serif;
+  --text: "Crimson Pro", Georgia, serif;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--stone); color: var(--ink); font-family: var(--text); font-size: 1.2rem; line-height: 1.6; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+p { margin: 0 0 1rem; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; margin: 0; line-height: 1.1; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.wrap { max-width: 68rem; margin: 0 auto; padding: 0 var(--gutter); }
+
+.made { margin: 0; padding: .5rem var(--gutter); background: #120c14; color: #efe6da; font-size: .95rem; line-height: 1.4; text-align: center; }
+
+/* First screen: the question, sealed like a charter */
+.hero { background: var(--dusk); color: #f3e9dc; padding: 1.25rem 0 3rem; }
+.bar { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding-bottom: 1.5rem; }
+.name { font-family: var(--display); font-size: 1.45rem; color: var(--gold); text-decoration: none; }
+.bar nav { display: flex; gap: 1.1rem; font-size: 1.05rem; }
+.bar nav a { text-decoration: none; color: #e9dccd; }
+.bar nav a:hover { color: var(--gold); }
+.charter { border: 1px solid var(--gold); outline: 1px solid rgba(233,166,58,.45); outline-offset: 5px; margin: 6px; padding: 1.75rem 1.25rem; display: grid; gap: 2rem; }
+.charter h1 { font-size: clamp(2.5rem, 10vw, 5.4rem); line-height: 1.02; color: #f6ecdf; }
+.charter h1 em { color: var(--gold); }
+.said { margin: 1.25rem 0 0; color: var(--mauve); font-size: 1.15rem; max-width: 30rem; }
+.cover { width: min(60%, 260px); margin: 0 auto; box-shadow: 0 0 0 1px rgba(233,166,58,.6), 0 18px 40px rgba(0,0,0,.45); }
+.hero .cta { margin-top: 1.75rem; display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; align-items: center; }
+.buy { display: inline-block; background: var(--gold); color: #1d1418; font-weight: 600; text-decoration: none; padding: .7rem 1.4rem; font-size: 1.1rem; }
+.buy:hover { background: #f4bb59; }
+.quiet { color: #e9dccd; text-underline-offset: 4px; }
+
+/* Body sections: ruled like a folio */
+section { padding: 3.5rem 0; }
+section + section { border-top: 1px solid var(--rule); }
+h2 { font-size: clamp(2rem, 6vw, 3rem); color: var(--ink); margin-bottom: 1.25rem; }
+.lede { font-family: var(--display); font-style: italic; font-size: 1.45rem; line-height: 1.35; color: var(--ink-soft); }
+.cols { display: grid; gap: 2rem; }
+.blurb p:first-child::first-letter { font-family: var(--display); float: left; font-size: 4.1rem; line-height: .82; padding: .3rem .5rem 0 0; color: var(--amber); }
+.facts { margin: 0; padding: 1rem 0 0; border-top: 3px double var(--rule); }
+.facts dt { font-style: italic; color: var(--ink-soft); }
+.facts dd { margin: 0 0 .9rem; }
+.facts a { text-underline-offset: 4px; }
+.inline-buy { margin-top: .5rem; }
+.inline-buy .buy { color: #1d1418; }
+
+.origin { background: var(--stone-2); }
+.plane { font-family: var(--display); font-size: clamp(1.6rem, 5vw, 2.4rem); line-height: 1.25; margin: 0 0 1.5rem; max-width: 40rem; }
+.polish { margin: 2rem 0 0; padding-left: 1.25rem; border-left: 3px double var(--rule); max-width: 40rem; }
+.polish p { margin: 0; }
+.polish [lang="pl"] { font-family: var(--display); font-size: 1.35rem; line-height: 1.4; }
+.polish .gloss { color: var(--ink-soft); margin-top: .5rem; }
+
+.next .wrap > p { max-width: 40rem; }
+.ledger { list-style: none; margin: 2rem 0 0; padding: 0; max-width: 40rem; }
+.ledger li { display: grid; grid-template-columns: 7.5rem 1fr; gap: 1rem; padding: .8rem 0; border-bottom: 1px solid var(--rule); }
+.ledger li:first-child { border-top: 1px solid var(--rule); }
+.ledger b { font-weight: 600; }
+.ledger span:first-child { font-style: italic; color: var(--ink-soft); }
+
+.about p { font-family: var(--display); font-size: clamp(1.6rem, 5vw, 2.3rem); line-height: 1.3; max-width: 36rem; margin: 0; }
+
+.ig { background: var(--dusk); color: #f3e9dc; border-top: 0; }
+.ig h2 { color: var(--gold); }
+.ig a.handle { font-family: var(--display); font-size: clamp(1.7rem, 6vw, 2.6rem); color: #f6ecdf; text-underline-offset: 6px; text-decoration-color: var(--gold); }
+.ig p { color: #d9cbbc; max-width: 34rem; }
+
+footer { background: #120c14; color: #cbbcae; padding: 2rem 0 2.5rem; font-size: 1rem; }
+footer nav { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; margin-bottom: 1rem; }
+footer p { margin: 0; }
+
+@media (min-width: 52rem) {
+  :root { --gutter: 2rem; }
+  .hero { padding: 1.5rem 0 4rem; }
+  .charter { grid-template-columns: 1.35fr 1fr; align-items: center; padding: 3rem 3.25rem; gap: 3.5rem; }
+  .cover { width: 100%; max-width: 340px; margin: 0 0 0 auto; }
+  .cols { grid-template-columns: 1.6fr 1fr; gap: 4rem; }
+}
+</style>
+</head>
+<body>
+<p class="made">A homepage idea made by Sparsh Saini for K.B. Diaz. Not their official site.</p>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="bar">
+      <a class="name" href="#top">K.B. Diaz</a>
+      <nav aria-label="Sections"><a href="#book">The book</a><a href="#next">Next</a><a href="#ig">Instagram</a></nav>
+    </div>
+    <div class="charter" id="top">
+      <div>
+        <h1>What if the Jagiellonian dynasty had <em>dragons?</em></h1>
+        <p class="said">A question K.B. kept asking on a plane home, about five years ago. The answer is <i>Dragon's Liberty</i>.</p>
+        <div class="cta">
+          <a class="buy" href="https://a.co/d/eB5r0IF">Buy Dragon's Liberty</a>
+          <a class="quiet" href="https://www.goodreads.com/book/show/245811536-dragon-s-liberty">Add it on Goodreads</a>
+        </div>
+      </div>
+      <img class="cover" src="img/cover.jpg" width="585" height="900" alt="Cover of Dragon's Liberty by K.B. Diaz: a dragon flies over a city of spires at a golden sunset while a woman watches from a balcony.">
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="book">
+    <div class="wrap">
+      <h2>Dragon's Liberty</h2>
+      <p class="lede">The Republic of The Two Dragons, book one.</p>
+      <div class="cols">
+        <div class="blurb">
+          <p>Princess Wanda was never meant to rule. After the violent death of her older brother, her father has forbidden her to leave the castle for the last seven years. Her only steadfast friend is her cousin Stach, who tells her tales of the sky on dragonback.</p>
+          <p>When rumors spread of a sorcerer with the power to kill dragons, Wanda takes flight to capture them to prove to her father that she is worthy of being sovereign. But when she forges a friendship in the most unlikely of places, Wanda begins to see the cruelty in her father's love, and wonders if everything she knows is a lie.</p>
+          <p>Stach's satisfaction with the establishment is shaken when a diplomat is found dead under mysterious circumstances. He traverses the perilous world of court politics to investigate their death, forced to reckon with the corruption of the nobility in every coin embezzled and every law circumvented. As he uncovers a treasonous plot and a disaster brings him to his knees, he must come face-to-face with the restrictions of royal authority, and questions if there should be any limits at all.</p>
+        </div>
+        <dl class="facts">
+          <dt>Published</dt><dd>18 August 2026</dd>
+          <dt>Length</dt><dd>512 pages</dd>
+          <dt>Formats</dt><dd>Ebook, paperback and hardcover</dd>
+          <dt>Set in</dt><dd>A fantasy 17th-century Poland and Lithuania</dd>
+          <dd class="inline-buy"><a class="buy" href="https://a.co/d/eB5r0IF">Buy on Amazon</a></dd>
+          <dd><a href="https://www.goodreads.com/book/show/245811536-dragon-s-liberty">Dragon's Liberty on Goodreads</a></dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="origin" id="origin">
+    <div class="wrap">
+      <h2>Where it comes from</h2>
+      <p class="plane">&ldquo;Around five years ago, I sat on a plane on my way home to visit family and kept wondering…what if the Jagiellonian dynasty had dragons?&rdquo;</p>
+      <p>Five years later, the question is a 512-page book. It carries a thank-you to the people in Poland who showed K.B. the country, written in Polish.</p>
+      <blockquote class="polish">
+        <p lang="pl">Dla moich mentorów w Polsce za pokazanie mi swojego kraju oraz historii polskiej.</p>
+        <p class="gloss">For my mentors in Poland, for showing me their country and Polish history.</p>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="next" id="next">
+    <div class="wrap">
+      <h2>What's next</h2>
+      <p><b>The Girl Who Broke the Storm</b> is a 16k-word prequel novella about Audra, "before she was known as the heaven master, before she was brought into the care of the voivode, when she was just a 14-year-old girl in a tiny village." It is aimed for release between February and June.</p>
+      <p>In K.B.'s words: "Book 1 of ROTD down. Three more books and several prequel novellas and short stories to go."</p>
+      <ol class="ledger">
+        <li><span>Book one</span><span><b>Dragon's Liberty</b>, out now</span></li>
+        <li><span>Prequel</span><span><b>The Girl Who Broke the Storm</b>, February to June</span></li>
+        <li><span>Still to come</span><span>Three more books, more novellas and short stories</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <h2>About K.B.</h2>
+      <p>Indie epic fantasy writer who likes history too much.</p>
+    </div>
+  </section>
+
+  <section class="ig" id="ig">
+    <div class="wrap">
+      <h2>Instagram</h2>
+      <p>Follow K.B. for news of the novella and the next books.</p>
+      <a class="handle" href="https://www.instagram.com/kbdiazwrites/">@kbdiazwrites</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Elsewhere">
+      <a href="https://www.instagram.com/kbdiazwrites/">Instagram</a>
+      <a href="https://www.goodreads.com/book/show/245811536-dragon-s-liberty">Goodreads</a>
+      <a href="https://a.co/d/eB5r0IF">Amazon</a>
+    </nav>
+    <p>A mockup made by Sparsh Saini for K.B. Diaz. Not affiliated, not live. The cover and words are K.B.'s.</p>
+  </div>
+</footer>
+</body>
+</html>
