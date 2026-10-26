@@ -11,6 +11,7 @@
 <meta property="og:image" content="https://sparshsainied-prog.github.io/kbdiaz/img/og.jpg">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23271d2b'/><rect x='5' y='5' width='22' height='22' fill='none' stroke='%23e9a63a' stroke-width='2'/><text x='16' y='22' font-family='serif' font-size='15' text-anchor='middle' fill='%23e9a63a'>D</text></svg>">
+<script>document.documentElement.classList.add('js')</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -42,22 +43,65 @@ h1, h2, h3 { font-family: var(--display); font-weight: 400; margin: 0; line-heig
 
 .made { margin: 0; padding: .5rem var(--gutter); background: #120c14; color: #efe6da; font-size: .95rem; line-height: 1.4; text-align: center; }
 
-/* First screen: the question, sealed like a charter */
-.hero { background: var(--dusk); color: #f3e9dc; padding: 1.25rem 0 3rem; }
-.bar { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding-bottom: 1.5rem; }
+/* First screen: a sealed charter. The seal breaks, the two leaves open like doors,
+   the cover's dragon crosses the sky over the spires, and the book settles. */
+.hero { --p: 1; position: relative; height: 100svh; min-height: 40rem; color: #f3e9dc; }
+.js .hero { --p: 0; height: 380svh; }
+.hero {
+  --s: clamp(0, calc((var(--p) - .03) / .12), 1);
+  --q: clamp(0, calc((var(--p) - .06) / .12), 1);
+  --d: clamp(0, calc((var(--p) - .12) / .34), 1);
+  --f: clamp(0, calc((var(--p) - .24) / .5), 1);
+  --c: clamp(0, calc((var(--p) - .7) / .2), 1);
+}
+.stage { position: sticky; top: 0; height: 100svh; min-height: 40rem; overflow: hidden; background: var(--dusk); }
+.city { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: 50% 42%;
+  transform: scale(calc(1.14 - .14 * var(--d))); will-change: transform; }
+.dragon { position: absolute; left: 0; top: var(--dy); width: var(--dw); max-width: none; pointer-events: none;
+  transform: translate3d(calc(100vw - var(--f) * (100vw + var(--dw) + 8vw)), calc(5svh - 9svh * var(--f)), 0); will-change: transform; }
+.scrim { position: absolute; inset: 0; pointer-events: none; opacity: var(--c); will-change: opacity;
+  background: linear-gradient(90deg, rgba(25,16,30,.9) 0, rgba(25,16,30,.62) 48%, rgba(25,16,30,.2) 100%), linear-gradient(rgba(25,16,30,.55), transparent 22%); }
+
+.door { position: absolute; top: 0; bottom: 0; width: 50.5%; will-change: transform; background:
+    linear-gradient(transparent calc(50% - 1px), rgba(0,0,0,.28) calc(50% - 1px), rgba(255,240,220,.07) calc(50% + 1px), transparent calc(50% + 2px)),
+    linear-gradient(rgba(255,255,255,.04), rgba(0,0,0,.18)),
+    #3a2846; }
+.door::before { content: ""; position: absolute; inset: 14px; border: 1px solid rgba(233,166,58,.75); outline: 1px solid rgba(233,166,58,.35); outline-offset: 5px; }
+.door.l { left: 0; transform-origin: 0 50%; transform: perspective(1600px) rotateY(calc(98deg * var(--d))); box-shadow: inset -18px 0 30px rgba(0,0,0,.25); }
+.door.r { right: 0; transform-origin: 100% 50%; transform: perspective(1600px) rotateY(calc(-98deg * var(--d))); box-shadow: inset 18px 0 30px rgba(0,0,0,.25); }
+.door.l::before { right: 0; border-right: 0; }
+.door.r::before { left: 0; border-left: 0; }
+
+.ask { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; padding: 6rem 2.25rem 11rem; pointer-events: none;
+  opacity: calc(1 - var(--q)); transform: translateY(calc(-2rem * var(--q))); will-change: opacity, transform; }
+.ask h1 { font-size: clamp(2.3rem, 8.5vw, 5rem); line-height: 1.04; color: #f6ecdf; max-width: 7.2em; margin: 0 auto; }
+.ask h1 em { color: var(--gold); }
+.ask .by { margin: 1rem 0 0; color: var(--mauve); font-style: italic; }
+.seal { position: absolute; left: 50%; bottom: 11svh; width: 7.5rem; height: 7.5rem; margin-left: -3.75rem; pointer-events: none; }
+.seal img { position: absolute; inset: 0; width: 100%; height: 100%; will-change: transform, opacity; opacity: calc(1 - var(--s)); }
+.seal .s1 { clip-path: polygon(0 0, 52% 0, 46% 22%, 55% 41%, 45% 60%, 54% 79%, 47% 100%, 0 100%);
+  transform: translate(calc(-4.5rem * var(--s)), calc(2.5rem * var(--s))) rotate(calc(-28deg * var(--s))); }
+.seal .s2 { clip-path: polygon(52% 0, 100% 0, 100% 100%, 47% 100%, 54% 79%, 45% 60%, 55% 41%, 46% 22%);
+  transform: translate(calc(4.5rem * var(--s)), calc(3rem * var(--s))) rotate(calc(24deg * var(--s))); }
+
+.settle { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 1.25rem; padding-top: 4.5rem; padding-bottom: 2rem;
+  opacity: var(--c); transform: translateY(calc(2.5rem - 2.5rem * var(--c))); will-change: opacity, transform; }
+.js .hero:not(.done) .settle { pointer-events: none; }
+.settle .cover { height: 34svh; width: auto; max-width: none; align-self: flex-start; box-shadow: 0 0 0 1px rgba(233,166,58,.6), 0 18px 40px rgba(0,0,0,.5); }
+.settle .title { font-family: var(--display); font-size: clamp(2.3rem, 7vw, 4.2rem); line-height: 1.02; color: var(--gold); margin: 0; }
+.said { margin: .6rem 0 0; color: #eadccf; font-size: 1.15rem; max-width: 30rem; }
+.hero .cta { margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; align-items: center; }
+.buy { display: inline-block; background: var(--gold); color: #1d1418; font-weight: 600; text-decoration: none; padding: .7rem 1.4rem; font-size: 1.1rem; }
+.buy:hover { background: #f4bb59; }
+.quiet { color: #f3e9dc; text-underline-offset: 4px; }
+
+.bar { position: absolute; top: 0; left: 0; right: 0; display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding-top: 1.25rem; z-index: 2; }
 .name { font-family: var(--display); font-size: 1.45rem; color: var(--gold); text-decoration: none; }
 .bar nav { display: flex; gap: 1.1rem; font-size: 1.05rem; }
 .bar nav a { text-decoration: none; color: #e9dccd; }
 .bar nav a:hover { color: var(--gold); }
-.charter { border: 1px solid var(--gold); outline: 1px solid rgba(233,166,58,.45); outline-offset: 5px; margin: 6px; padding: 1.75rem 1.25rem; display: grid; gap: 2rem; }
-.charter h1 { font-size: clamp(2.5rem, 10vw, 5.4rem); line-height: 1.02; color: #f6ecdf; }
-.charter h1 em { color: var(--gold); }
-.said { margin: 1.25rem 0 0; color: var(--mauve); font-size: 1.15rem; max-width: 30rem; }
-.cover { width: min(60%, 260px); margin: 0 auto; box-shadow: 0 0 0 1px rgba(233,166,58,.6), 0 18px 40px rgba(0,0,0,.45); }
-.hero .cta { margin-top: 1.75rem; display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; align-items: center; }
-.buy { display: inline-block; background: var(--gold); color: #1d1418; font-weight: 600; text-decoration: none; padding: .7rem 1.4rem; font-size: 1.1rem; }
-.buy:hover { background: #f4bb59; }
-.quiet { color: #e9dccd; text-underline-offset: 4px; }
+.stage { --dw: 74vw; --dy: 12svh; }
+
 
 /* Body sections: ruled like a folio */
 section { padding: 3.5rem 0; }
@@ -98,11 +142,13 @@ footer { background: #120c14; color: #cbbcae; padding: 2rem 0 2.5rem; font-size:
 footer nav { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; margin-bottom: 1rem; }
 footer p { margin: 0; }
 
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 @media (min-width: 52rem) {
   :root { --gutter: 2rem; }
-  .hero { padding: 1.5rem 0 4rem; }
-  .charter { grid-template-columns: 1.35fr 1fr; align-items: center; padding: 3rem 3.25rem; gap: 3.5rem; }
-  .cover { width: 100%; max-width: 340px; margin: 0 0 0 auto; }
+  .stage { --dw: min(40vw, 620px); --dy: 9svh; }
+  .settle { flex-direction: row-reverse; justify-content: space-between; align-items: center; gap: 4rem; padding-top: 3rem; }
+  .settle .cover { height: min(66svh, 580px); align-self: center; }
+  .settle > div { max-width: 34rem; }
   .cols { grid-template-columns: 1.6fr 1fr; gap: 4rem; }
 }
 </style>
@@ -111,21 +157,31 @@ footer p { margin: 0; }
 <p class="made">A homepage idea made by Sparsh Saini for K.B. Diaz. Not their official site.</p>
 
 <header class="hero">
-  <div class="wrap">
-    <div class="bar">
-      <a class="name" href="#top">K.B. Diaz</a>
-      <nav aria-label="Sections"><a href="#book">The book</a><a href="#next">Next</a><a href="#ig">Instagram</a></nav>
-    </div>
-    <div class="charter" id="top">
+  <div class="stage">
+    <img class="city" src="img/city.jpg" width="975" height="860" alt="">
+    <img class="dragon" src="img/dragon.png" width="520" height="276" alt="">
+    <div class="scrim"></div>
+    <div class="settle wrap">
+      <img class="cover" src="img/cover.jpg" width="585" height="900" alt="Cover of Dragon's Liberty by K.B. Diaz: a dragon flies over a city of spires at a golden sunset while a woman watches from a balcony.">
       <div>
-        <h1>What if the Jagiellonian dynasty had <em>dragons?</em></h1>
-        <p class="said">A question K.B. kept asking on a plane home, about five years ago. The answer is <i>Dragon's Liberty</i>.</p>
+        <p class="title">Dragon's Liberty</p>
+        <p class="said">The answer to a question K.B. kept asking on a plane home, about five years ago. Book one of The Republic of The Two Dragons.</p>
         <div class="cta">
           <a class="buy" href="https://a.co/d/eB5r0IF">Buy Dragon's Liberty</a>
           <a class="quiet" href="https://www.goodreads.com/book/show/245811536-dragon-s-liberty">Add it on Goodreads</a>
         </div>
       </div>
-      <img class="cover" src="img/cover.jpg" width="585" height="900" alt="Cover of Dragon's Liberty by K.B. Diaz: a dragon flies over a city of spires at a golden sunset while a woman watches from a balcony.">
+    </div>
+    <div class="door l" aria-hidden="true"></div>
+    <div class="door r" aria-hidden="true"></div>
+    <div class="ask" id="top">
+      <h1>What if the Jagiellonian dynasty had <em>dragons?</em></h1>
+      <p class="by">K.B. Diaz</p>
+    </div>
+    <div class="seal" aria-hidden="true"><img class="s1" src="img/seal.png" width="240" height="240" alt=""><img class="s2" src="img/seal.png" width="240" height="240" alt=""></div>
+    <div class="bar wrap">
+      <a class="name" href="#top">K.B. Diaz</a>
+      <nav aria-label="Sections"><a href="#book">The book</a><a href="#next">Next</a><a href="#ig">Instagram</a></nav>
     </div>
   </div>
 </header>
@@ -204,5 +260,23 @@ footer p { margin: 0; }
     <p>A mockup made by Sparsh Saini for K.B. Diaz. Not affiliated, not live. The cover and words are K.B.'s.</p>
   </div>
 </footer>
+
+<script>
+(() => {
+  const hero = document.querySelector('.hero');
+  if (!hero || matchMedia('(prefers-reduced-motion: reduce)').matches) { document.documentElement.classList.remove('js'); return; }
+  let ticking = false, top = 0, run = 1, done = null;
+  const measure = () => { top = hero.getBoundingClientRect().top + scrollY; run = hero.offsetHeight - innerHeight; };
+  const update = () => {
+    ticking = false;
+    const p = run > 0 ? Math.min(1, Math.max(0, (scrollY - top) / run)) : 1;
+    hero.style.setProperty('--p', p.toFixed(4));
+    const d = p > .85; if (d !== done) { done = d; hero.classList.toggle('done', d); }
+  };
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  addEventListener('resize', () => { measure(); update(); });
+  measure(); update();
+})();
+</script>
 </body>
 </html>
